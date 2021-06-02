@@ -2,6 +2,9 @@
   "name": "proshop-client",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "url": "https://github.com/denrion/proshop-client"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^4.2.4",
