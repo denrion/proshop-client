@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 
-import { Loader } from '../../app/components/Loader';
-import { Message } from '../../app/components/Message';
+import { Loader } from '../../app/components/UI/Loader';
+import { Message } from '../../app/components/UI/Message';
 import { Rating } from '../../app/components/Rating';
 import { RequestStatus } from '../../app/types/request';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';

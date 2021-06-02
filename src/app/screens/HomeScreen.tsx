@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
-import { Loader } from '../components/Loader';
-import { Message } from '../components/Message';
+import { Loader } from '../components/UI/Loader';
+import { Message } from '../components/UI/Message';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { ProductList } from '../../features/product/ProductList';
 import { listProducts } from '../../features/product/productThunks';
