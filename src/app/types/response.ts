@@ -33,12 +33,12 @@ interface IPaginationLinks {
   last: string;
 }
 
-export interface IPaginatedResponseDTO<T> {
+export interface IPaginatedResponse<T> {
   meta: IPaginationMeta;
   links: IPaginationLinks;
   items: T[];
 }
 
 export interface IApiPaginationResponse<T> extends IApiResponse {
-  data: IPaginatedResponseDTO<T>;
+  data: IPaginatedResponse<T>;
 }

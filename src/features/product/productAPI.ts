@@ -1,14 +1,22 @@
 import axios from '../../app/api/axios';
-import { IProduct } from './IProduct';
 import {
   IApiPaginationResponse,
   IApiSuccessResponse,
 } from '../../app/types/response';
+import { IProduct } from './types/product';
 
-export const fetchProducts = () => {
-  return axios.get<IApiPaginationResponse<IProduct>>('/products');
+export const fetchProducts = async () => {
+  const response = await axios.get<IApiPaginationResponse<IProduct>>(
+    '/products'
+  );
+
+  return response.data.data;
 };
 
-export const fetchProductById = (id: string) => {
-  return axios.get<IApiSuccessResponse<IProduct>>(`/products/${id}`);
+export const fetchProductById = async (id: string) => {
+  const response = await axios.get<IApiSuccessResponse<IProduct>>(
+    `/products/${id}`
+  );
+
+  return response.data.data;
 };

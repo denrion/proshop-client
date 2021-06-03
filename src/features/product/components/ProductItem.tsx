@@ -2,14 +2,14 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-import { Rating } from '../../app/components/Rating';
-import { IProduct } from './IProduct';
+import { Rating } from '../../../app/components/Rating';
+import { IProduct } from '../types/product';
 
 interface IProductProps {
   product: IProduct;
 }
 
-export const ProductItem: React.FC<IProductProps> = props => {
+export const ProductItem: React.FC<IProductProps> = (props) => {
   const { product } = props;
   const { id, name, image, rating, numReviews, price } = product;
 

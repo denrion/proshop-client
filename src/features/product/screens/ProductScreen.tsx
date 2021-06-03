@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 
-import { Loader } from '../../app/components/UI/Loader';
-import { Message } from '../../app/components/UI/Message';
-import { Rating } from '../../app/components/Rating';
-import { RequestStatus } from '../../app/types/request';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { listProductDetails } from './productThunks';
+import { Loader } from '../../../app/components/UI/Loader';
+import { Message } from '../../../app/components/UI/Message';
+import { Rating } from '../../../app/components/Rating';
+import { useProduct } from '../hooks/useProduct';
 
 interface ProductScreenParams {
   id: string;
@@ -16,22 +14,17 @@ interface ProductScreenParams {
 export const ProductScreen: React.FC = () => {
   const { id: productId } = useParams<ProductScreenParams>();
 
-  const dispatch = useAppDispatch();
-
-  const productState = useAppSelector((state) => state.product);
-  const { status, error, product } = productState;
-
-  useEffect(() => {
-    dispatch(listProductDetails(productId));
-  }, [dispatch, productId]);
+  // REACT QUERY
+  const productQuery = useProduct({ productId });
+  const { isLoading, isIdle, isError, error, data: product } = productQuery;
 
   // Rendering
-  if (status === RequestStatus.LOADING) {
+  if (isLoading || isIdle) {
     return <Loader />;
   }
 
-  if (error) {
-    return <Message variant='danger'>{error}</Message>;
+  if (isError && error) {
+    return <Message variant='danger'>{error.message}</Message>;
   }
 
   if (!product) {

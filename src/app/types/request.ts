@@ -1,5 +1,4 @@
-export enum RequestStatus {
-  IDLE = 'idle',
-  LOADING = 'loading',
-  FAILED = 'failed',
+export enum ReactQueryKeys {
+  PRODUCTS = 'products',
+  PRODUCT = 'products/:id',
 }
